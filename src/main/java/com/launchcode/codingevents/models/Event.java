@@ -8,14 +8,14 @@ public class Event {
     private int id;
     private static int nextId = 1;
 
-    @NotBlank
+    @NotBlank(message = "Name is required.")
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 characters.")
     private String name;
 
-    @Size(max = 500, message = "Description too long.")
+    @Size(max = 500, message = "Description too long!")
     private String description;
 
-    @NotBlank
+    @NotBlank(message = "Email is required.")
     @Email(message = "Invalid Email. Try Again.")
     private String contactEmail;
 
@@ -23,6 +23,9 @@ public class Event {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
+    }
+
+    public Event(){
         this.id = nextId;
         nextId++;
     }
