@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -19,8 +20,14 @@ public class EventController {
 
     @GetMapping
     public String displayAllEvents(Model model){
-        model.addAttribute("title", "All Events");
-        model.addAttribute("events", EventData.getAll());
+//        model.addAttribute("title", "All Events");
+//        model.addAttribute("events", EventData.getAll());
+//        return "events/index";
+
+        HashMap<String, String> events = new HashMap<>();
+        events.put("StrangeLoop", "Big ol' coding event t the Stifel,");
+        events.put("Battle of the Bands", "Rock contest for amateurs");
+        events.put("Weasel Stomping Day", "Just what ot sounds like.");
         return "events/index";
     }
 
