@@ -9,7 +9,6 @@ import java.util.Objects;
 @Entity
 public class Event {
 
-
     @Id
     @GeneratedValue
     private int id;
@@ -34,7 +33,8 @@ public class Event {
 
     private EventType type;
 
-    public Event(String name, String description, String contactEmail, String address, int attendees) {
+    public Event(String name, String description, String contactEmail,
+                 String address, int attendees, EventType type) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;

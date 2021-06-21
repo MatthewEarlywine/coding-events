@@ -1,26 +1,29 @@
 package com.launchcode.codingevents.controllers;
 
-
-import com.launchcode.codingevents.data.EventData;
+import com.launchcode.codingevents.data.EventRepository;
 import com.launchcode.codingevents.models.Event;
 import com.launchcode.codingevents.models.EventType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping("events")
 public class EventController {
 
+    @Autowired
+    private EventRepository eventRepository;
+
+    // findAll, save, findById
+
     @GetMapping
     public String displayAllEvents(Model model){
         model.addAttribute("title", "All Events");
-        model.addAttribute("events", EventData.getAll());
+        model.addAttribute("events", eventRepository.findAll());
         return "events/index";
     }
 
@@ -28,7 +31,7 @@ public class EventController {
     @GetMapping("create")
     public String renderCreateEventForm(Model model){
         model.addAttribute("title", "Create Events");
-        model.addAttribute("event", new Event());
+        model.addAttribute(new Event());
         model.addAttribute("types", EventType.values());
         return "events/create";
     }
@@ -41,14 +44,14 @@ public class EventController {
             return "events/create";
         }
 
-        EventData.add(newEvent);
+        eventRepository.save(newEvent);
         return "redirect:";
     }
 
     @GetMapping("delete")
     public String displayDeleteEventForm(Model model){
         model.addAttribute("title", "Delete Events");
-        model.addAttribute("events", EventData.getAll());
+        model.addAttribute("events", eventRepository.findAll());
         return "events/delete";
     }
 
@@ -57,7 +60,7 @@ public class EventController {
 
         if (eventIds != null) {
             for (int id : eventIds) {
-                EventData.remove(id);
+                eventRepository.deleteById(id);
             }
         }
 

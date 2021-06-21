@@ -14,16 +14,18 @@ public class EventData {
         return events.values();
     }
 
-    public static Event getById(int id){
-        return events.get(id);
-    }
-
     public static void add(Event event){
         events.put(event.getId(), event);
     }
 
+    public static Event getById(int id){
+        return events.get(id);
+    }
+
     public static void remove(int id){
-        events.remove(id);
+        if (events.containsKey(id)) {
+            events.remove(id);
+        }
     }
 
 }
