@@ -3,6 +3,7 @@ package com.launchcode.codingevents.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.*;
 import java.util.Objects;
 
@@ -27,16 +28,18 @@ public class Event extends AbstractEntity {
     @Min(value = 1, message = "Someone must attend the event!")
     private int attendees;
 
-    private EventType type;
+    @ManyToOne
+    @NotNull(message = "Category is required")
+    private EventCategory eventCategory;
 
     public Event(String name, String description, String contactEmail,
-                 String address, int attendees, EventType type) {
+                 String address, int attendees, EventCategory eventCategory) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
         this.address = address;
         this.attendees = attendees;
-        this.type = type;
+        this.eventCategory = eventCategory;
     }
 
     public Event(){}
@@ -81,12 +84,12 @@ public class Event extends AbstractEntity {
         this.attendees = attendees;
     }
 
-    public EventType getType() {
-        return type;
+    public EventCategory getEventCategory() {
+        return eventCategory;
     }
 
-    public void setType(EventType type) {
-        this.type = type;
+    public void setEventCategory(EventCategory eventCategory) {
+        this.eventCategory = eventCategory;
     }
 
     @Override

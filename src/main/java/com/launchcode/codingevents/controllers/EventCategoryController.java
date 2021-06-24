@@ -3,7 +3,6 @@ package com.launchcode.codingevents.controllers;
 import com.launchcode.codingevents.data.EventCategoryRepository;
 import com.launchcode.codingevents.models.Event;
 import com.launchcode.codingevents.models.EventCategory;
-import com.launchcode.codingevents.models.EventType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
