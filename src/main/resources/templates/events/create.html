@@ -14,27 +14,27 @@
     </div>
     <div class="form-group">
         <label>Description
-            <input th:field="${event.description}" class="form-control">
+            <input th:field="${event.eventDetails.description}" class="form-control">
         </label>
-        <p class="error" th:errors="${event.description}"></p>
+        <p class="error" th:errors="${event.eventDetails.description}"></p>
     </div>
     <div class="form-group">
         <label>Contact Email
-            <input th:field="${event.contactEmail}" class="form-control">
+            <input th:field="${event.eventDetails.contactEmail}" class="form-control">
         </label>
-        <p class="error" th:errors="${event.contactEmail}"></p>
+        <p class="error" th:errors="${event.eventDetails.contactEmail}"></p>
     </div>
     <div class="form-group">
         <label>Event Address
-            <input th:field="${event.address}" class="form-control">
+            <input th:field="${event.eventDetails.address}" class="form-control">
         </label>
-        <p class="error" th:errors="${event.address}"></p>
+        <p class="error" th:errors="${event.eventDetails.address}"></p>
     </div>
     <div class="form-group">
         <label>Expected Number of Attendees
-            <input th:field="${event.attendees}" class="form-control">
+            <input th:field="${event.eventDetails.attendees}" class="form-control">
         </label>
-        <p class="error" th:errors="${event.attendees}"></p>
+        <p class="error" th:errors="${event.eventDetails.attendees}"></p>
     </div>
     <div class="form-group">
         <label>Category
