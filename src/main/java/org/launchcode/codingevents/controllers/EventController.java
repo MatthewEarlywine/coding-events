@@ -38,25 +38,25 @@ public class EventController {
         if (categoryId == null && tagId == null) {
             model.addAttribute("title", "All Events");
             model.addAttribute("events", eventRepository.findAll());
-        } else {
+        } else if (categoryId != null){
             Optional<EventCategory> result = eventCategoryRepository.findById(categoryId);
             if (result.isEmpty()) {
                 model.addAttribute("title", "Invalid Category ID: ");
             } else {
                 EventCategory category = result.get();
-                Optional<Tag> product = tagRepository.findById(tagId);
-                if (product.isEmpty()){
-                    model.addAttribute("title", "Events in category: " + category.getName());
-                    model.addAttribute("events", category.getEvents());
-                } else {
-                    Tag tag = product.get();
-                    model.addAttribute("title", "Events with tag: " + tag.getName());
-                    model.addAttribute("tags", tag.getEvents());
-                }
+                model.addAttribute("title", "Events in category: " + category.getName());
+                model.addAttribute("events", category.getEvents());
+            }
+        } else if (tagId != null){
+            Optional<Tag> product = tagRepository.findById(tagId);
+            if (product.isEmpty()) {
+                model.addAttribute("title", "Invalid Tag ID: ");
+            } else {
+                Tag tagType = product.get();
+                model.addAttribute("title", "Events with tag: " + tagType.getName());
+                model.addAttribute("events", tagType.getEvents());
             }
         }
-
-
         return "events/index";
     }
 
