@@ -1,7 +1,6 @@
-package com.launchcode.codingevents.models;
+package org.launchcode.codingevents.models;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.*;
 
 @Entity

@@ -1,6 +1,6 @@
-package com.launchcode.codingevents.data;
+package org.launchcode.codingevents.data;
 
-import com.launchcode.codingevents.models.Event;
+import org.launchcode.codingevents.models.Event;
 
 import java.util.Collection;
 import java.util.HashMap;

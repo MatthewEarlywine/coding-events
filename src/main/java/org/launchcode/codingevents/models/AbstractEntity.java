@@ -1,4 +1,4 @@
-package com.launchcode.codingevents.models;
+package org.launchcode.codingevents.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

@@ -1,4 +1,4 @@
-package com.launchcode.codingevents.controllers;
+package org.launchcode.codingevents.controllers;
 
 
 import org.springframework.stereotype.Controller;
