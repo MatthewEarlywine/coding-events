@@ -16,6 +16,7 @@
         <th>Contact Email</th>
         <th>Event Address</th>
         <th>Expected Number of Attendees</th>
+        <th>Tags</th>
         <th>Category</th>
     </tr>
     </thead>
@@ -26,6 +27,9 @@
         <td th:text="${event.eventDetails.contactEmail}"></td>
         <td th:text="${event.eventDetails.address}"></td>
         <td th:text="${event.eventDetails.attendees}"></td>
+        <td th:each="tag : ${event.tags}">
+            <span th:text="${tag.name}"></span>
+        </td>
         <td th:text="${event.eventCategory}"></td>
     </tr>
 </table>
